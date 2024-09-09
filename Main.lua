@@ -193,7 +193,7 @@ function animateLoadingBar()
     wait(0.5)
     gui:Destroy()
 
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/MuradKil/SpectraHub/main/Main.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/MuradKil/SpectralHub/main/Main.lua"))()
 
 
 function updateProgress(progress)
