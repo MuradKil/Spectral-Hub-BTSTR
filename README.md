@@ -1,1 +1,1 @@
-# Please dont steal script before obfuscatoin
+# Spectral Hub | Build To Survive The Robots
