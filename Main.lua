@@ -111,7 +111,6 @@ local gui = Instance.new("ScreenGui")
 gui.Name = "CustomLoader"
 gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
-
 local frame = Instance.new("Frame")
 frame.Size = UDim2.new(0, 400, 0, 220)
 frame.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -119,11 +118,9 @@ frame.AnchorPoint = Vector2.new(0.5, 0.5)
 frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
 frame.Parent = gui
 
-
 local corner = Instance.new("UICorner")
 corner.CornerRadius = UDim.new(0, 20)
 corner.Parent = frame
-
 
 local Title = Instance.new("TextLabel")
 Title.Size = UDim2.new(0.99, 0, 0, 60)
@@ -136,15 +133,13 @@ Title.Font = Enum.Font.SourceSansBold
 Title.Text = "Spectral Hub"
 Title.Parent = frame
 
-
 local titleGradient = Instance.new("UIGradient")
 titleGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 255)),
-    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 255)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(128, 0, 255))
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 255)),  -- Start color (purple)
+    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 255)), -- Middle color (cyan)
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(128, 0, 255))    -- End color (purple)
 }
 titleGradient.Parent = Title
-
 
 local loadingBarFrame = Instance.new("Frame")
 loadingBarFrame.Size = UDim2.new(0, 0, 0.2, 0)
@@ -152,20 +147,17 @@ loadingBarFrame.Position = UDim2.new(0.02, 0, 0.75, 0)
 loadingBarFrame.BackgroundColor3 = Color3.new(20, 0, 21)
 loadingBarFrame.Parent = frame
 
-
 local loadingBarGradient = Instance.new("UIGradient")
 loadingBarGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 255)),
-    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 255)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(128, 0, 255))
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 255)),  -- Start color (purple)
+    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 255)), -- Middle color (cyan)
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(128, 0, 255))    -- End color (purple)
 }
 loadingBarGradient.Parent = loadingBarFrame
-
 
 local corner_2 = Instance.new("UICorner")
 corner_2.CornerRadius = UDim.new(0, 15)
 corner_2.Parent = loadingBarFrame
-
 
 local loadingText = Instance.new("TextLabel")
 loadingText.Size = UDim2.new(0.95, 0, 0, 30)
@@ -177,7 +169,6 @@ loadingText.TextSize = 18
 loadingText.Font = Enum.Font.SourceSansBold
 loadingText.Text = "Loading..."
 loadingText.Parent = frame
-
 
 function animateLoadingBar()
     local progress = 0
@@ -193,13 +184,12 @@ function animateLoadingBar()
     gui:Destroy()
 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/MuradKil/SpectralHub/main/Main.lua"))()
-
+end
 
 function updateProgress(progress)
     loadingBarFrame.Size = UDim2.new(progress / 105, 0, 0.2, 0)
     loadingText.Text = "Loading: " .. progress .. "%"
 end
-
 
 spawn(animateLoadingBar)
     else
